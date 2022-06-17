@@ -1,0 +1,46 @@
+.container{
+    max-width: 1170px;
+    margin: auto;
+    padding: 1vh;
+}
+
+.req{
+    display: flex;
+
+}
+
+.reqList{
+    display: flex;
+    min-width: 470px;
+    flex-direction: column;
+}
+
+.reqRow{
+    display: flex;
+    justify-content: space-between;
+}
+
+.title{
+    font-weight: bold;
+}
+
+.reqGrid{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 1px;
+    padding-top: 1px;
+    background-color: #404040;
+}
+
+.reqCell{
+    background-color: #fff5bd;
+    color: #000000;
+    min-height: 20px;
+    min-width: 40px;
+    padding: 5px 2px 5px 2px;
+}
+
+.reqAdd{
+    display: flex;
+    flex-direction: column;
+}
