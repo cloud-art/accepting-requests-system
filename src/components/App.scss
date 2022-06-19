@@ -1,3 +1,17 @@
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
 .container{
     max-width: 1170px;
     margin: auto;
@@ -6,6 +20,8 @@
 
 .req{
     display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -15,25 +31,20 @@
     flex-direction: column;
 }
 
-.reqRow{
-    display: flex;
-    justify-content: space-between;
-}
-
 .title{
     font-weight: bold;
 }
 
 .reqGrid{
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     grid-gap: 1px;
     padding-top: 1px;
-    background-color: #404040;
+    // background-color: #404040;
 }
 
 .reqCell{
-    background-color: #fff5bd;
+    background-color: #fffae1;
     color: #000000;
     min-height: 20px;
     min-width: 40px;
@@ -43,4 +54,5 @@
 .reqAdd{
     display: flex;
     flex-direction: column;
+    margin-left: 20px;
 }

@@ -12,5 +12,12 @@
         "status":"disabled",
         "author":"someone",
         "text":"something"
+    },
+    {
+        "date":"17.05.2022",
+        "type":"2",
+        "status":"",
+        "author":"",
+        "text":""
     }
 ]
