@@ -1,5 +1,4 @@
 import './App.scss';
-import reqArray from "../data.json";
 import RequestsList from './RequestsList';
 import ModalAddRequest from './ModalAddRequest'
 import ReqAddForm from './ReqAddForm';

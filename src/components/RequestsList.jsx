@@ -1,4 +1,3 @@
-import reqArray from "../data.json";
 import { useState } from 'react';
 import Request from "./Request";
 
