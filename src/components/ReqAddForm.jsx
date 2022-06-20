@@ -1,15 +1,24 @@
 import React from "react";
-import moment from "moment";
 import { useState, useEffect } from "react";
+import moment from "moment";
 import uuid from 'react-uuid'
 import "./ReqAddForm.scss"
-
+import types from "../types.json"
 
 const ReqAddForm = ({requests, setRequests, currentUser}) => {
 
-    const [typeRequest, setTypeRequest] =  useState('');
-    const [textRequest, setTextRequest] =  useState('');
+
+
+    const [typeRequest, setTypeRequest] =  useState('')
+    const [textRequest, setTextRequest] =  useState('')
+    const [typesList, setTypesList] = useState([
+        {
+            "id": "777",
+            "type": "test"
+        }
+    ]);
     const [isButtonActive, setIsButtonActive] = useState(false)
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -32,9 +41,23 @@ const ReqAddForm = ({requests, setRequests, currentUser}) => {
         } else{
             setIsButtonActive(true)
         }
-        console.log('changed')
-        
     }, [typeRequest, textRequest]);
+
+    useEffect(() => {
+        let tmpTypesList = []
+        import("../types.json").then(value => {
+            for (let i = 0; i < value.length; i++){
+                tmpTypesList.push(value[i])
+            }
+        })
+        setTypesList(tmpTypesList)
+    }, [typeRequest])
+
+    const typesOptions = typesList.map( (e, i) => {
+        return (
+            <option key={e.id} value={e.type}>{e.type}</option>
+        )
+    })
 
     return (
         <div className={'modalForm'}>
@@ -43,12 +66,14 @@ const ReqAddForm = ({requests, setRequests, currentUser}) => {
                 <div className="addReqForm-container">
                     <label htmlFor="type">
                         <span className="reqAddForm-label">Тип заявки</span>
-                        <input 
-                            type="text" 
-                            name={"type"} 
+                        <select 
+                            name="types" 
+                            id="types" 
+                            form="reqForm" 
                             className={'reqAddForm-input'}
-                            onChange={e => setTypeRequest(e.target.value)}
-                            />
+                            onChange={e => setTypeRequest(e.target.value)}>
+                            {typesOptions}
+                        </select>
                     </label>
                     <label htmlFor="text">
                         <span className="reqAddForm-label">Текст</span>
