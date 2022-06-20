@@ -26,11 +26,17 @@ function App() {
     <>
       <div className='container'>
         <div className='req'>
-          <RequestsList requests={requests} setRequests={setRequests}/>
-          <div className='reqAdd'>
-            <span>Здравствуйте, {currentUser}</span>
-            <button onClick={() => setModalActive(true)}>Добавить зявку</button>
+
+          <div className='reqHeader'>
+            <h1>Список заявок:</h1>
+            <div className="reqAdd">
+              <span>Здравствуйте, <b>{currentUser}</b></span>
+              <button onClick={() => setModalActive(true)} className={'addbtn'}>Добавить зявку</button>
+            </div>
           </div>
+
+          <RequestsList requests={requests} setRequests={setRequests}/>
+
         </div>
       </div>
       <ModalAddRequest active={modalActive} setActive={setModalActive}>

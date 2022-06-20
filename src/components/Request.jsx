@@ -26,6 +26,7 @@ const Request = ({ id, date, type, status, author, text, list, setList}) => {
             </button>
             <button
                 onClick={(e) => handleDelete(e)}
+                className={'deletebtn'}
                 >
                 Delete
             </button>

@@ -6,7 +6,6 @@ function RequestsList({ requests, setRequests }) {
   
     return (
       <div className="reqList">
-        <h1>Список заявок:</h1>
         <div className="reqGrid">
           <div className='reqCell title'>date</div>
           <div className='reqCell title'>type</div>
