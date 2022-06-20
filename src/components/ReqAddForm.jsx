@@ -11,12 +11,7 @@ const ReqAddForm = ({requests, setRequests, currentUser}) => {
 
     const [typeRequest, setTypeRequest] =  useState('')
     const [textRequest, setTextRequest] =  useState('')
-    const [typesList, setTypesList] = useState([
-        {
-            "id": "777",
-            "type": "test"
-        }
-    ]);
+    const [typesList, setTypesList] = useState([]);
     const [isButtonActive, setIsButtonActive] = useState(false)
 
 
@@ -57,7 +52,6 @@ const ReqAddForm = ({requests, setRequests, currentUser}) => {
             }
         })
         setTypesList(tmpTypesList)
-        setTypeRequest(typesList[0])
     }, [typeRequest])
 
     return (
@@ -73,6 +67,7 @@ const ReqAddForm = ({requests, setRequests, currentUser}) => {
                             form="reqForm" 
                             className={'reqAddForm-input'}
                             onChange={e => setTypeRequest(e.target.value)}>
+                            <option key={0} selected disabled>Выберите тип заявки</option>
                             {typesOptions}
                         </select>
                     </label>
