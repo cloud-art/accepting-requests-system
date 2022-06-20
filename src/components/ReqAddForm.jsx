@@ -43,6 +43,12 @@ const ReqAddForm = ({requests, setRequests, currentUser}) => {
         }
     }, [typeRequest, textRequest]);
 
+    const typesOptions = typesList.map( (e, i) => {
+        return (
+            <option key={e.id} value={e.type}>{e.type}</option>
+        )
+    })
+
     useEffect(() => {
         let tmpTypesList = []
         import("../types.json").then(value => {
@@ -51,13 +57,8 @@ const ReqAddForm = ({requests, setRequests, currentUser}) => {
             }
         })
         setTypesList(tmpTypesList)
+        setTypeRequest(typesList[0])
     }, [typeRequest])
-
-    const typesOptions = typesList.map( (e, i) => {
-        return (
-            <option key={e.id} value={e.type}>{e.type}</option>
-        )
-    })
 
     return (
         <div className={'modalForm'}>
