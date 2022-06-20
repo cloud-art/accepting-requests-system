@@ -1,9 +1,10 @@
 import './App.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Request = ({ thisElement, list, setList}) => {
     const [canEdit, setCanEdit] = useState(false)
-    const [element, setElement] = useState(thisElement)
+    const [type, setType] = useState(thisElement.type)
+    const [text, setText] = useState(thisElement.text)
 
     const handleEdit = () => {
         setCanEdit(true)
@@ -11,8 +12,6 @@ const Request = ({ thisElement, list, setList}) => {
 
     const handleSubmitEdit = () => {
         setCanEdit(false)     
-        const indexInList = list.findIndex((e) => {return e.id === element.id})
-        setList([...list.slice(0, indexInList), element, ...list.slice(indexInList + 1)])
     }
 
     const handleDelete = () =>{
@@ -22,35 +21,34 @@ const Request = ({ thisElement, list, setList}) => {
     }
 
     const changeText = (e) => {
-        setElement({    
-            "id": element.id,
-            "date": element.date,
-            "type": element.type,
-            "status": element.status,
-            "author": element.author,
-            "text": e.target.value
-        })
+        setText(e.target.value)
     }
 
     const changeType = (e) => {
-        setElement({    
-            "id": element.id,
-            "date": element.date,
-            "type": e.target.value,
-            "status": element.status,
-            "author": element.author,
-            "text": element.text
-        })
+        setType(e.target.value)
     }
+
+    useEffect(() => {
+        const element = {
+            "id": thisElement.id,
+            "date": thisElement.date,
+            "type": type,
+            "status": thisElement.status,
+            "author": thisElement.author,
+            "text": text
+        }
+        const indexInList = list.findIndex((e) => {return e.id === thisElement.id})
+        setList([...list.slice(0, indexInList), element, ...list.slice(indexInList + 1)])
+    }, [type, text]);
 
     return(
         <div className="reqGrid" key="1">
-            <input className='reqCell reqCellDisabled' type="text" id="currentUser" value={element.date} disabled/>
-            <input className={'reqCell ' + (canEdit? 'reqCellActive' : 'reqCellDisabled')} type="text" id="currentUser" value={element.type} disabled={!canEdit}
+            <input className='reqCell reqCellDisabled' type="text" id="currentUser" value={thisElement.date} disabled/>
+            <input className={'reqCell ' + (canEdit? 'reqCellActive' : 'reqCellDisabled')} type="text" id="currentUser" value={thisElement.type} disabled={!canEdit}
                 onChange={e => changeType(e)}/>
-            <input className='reqCell reqCellDisabled' type="text" id="currentUser" value={element.status} disabled/>
-            <input className='reqCell reqCellDisabled' type="text" id="currentUser" value={element.author} disabled/>
-            <input className={'reqCell ' + (canEdit? 'reqCellActive' : 'reqCellDisabled')} type="text" id="currentUser" value={element.text} disabled={!canEdit}
+            <input className='reqCell reqCellDisabled' type="text" id="currentUser" value={thisElement.status} disabled/>
+            <input className='reqCell reqCellDisabled' type="text" id="currentUser" value={thisElement.author} disabled/>
+            <input className={'reqCell ' + (canEdit? 'reqCellActive' : 'reqCellDisabled')} type="text" id="currentUser" value={thisElement.text} disabled={!canEdit}
                 onChange={e => changeText(e)}/>
             {
                 (!canEdit && <button className='editbtn' onClick={() => handleEdit()}>Edit</button>)
