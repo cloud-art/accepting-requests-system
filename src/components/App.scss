@@ -8,14 +8,6 @@ button {
     width: 100%;
 }
 
-.addbtn{
-    background-color: #4c82af;
-}
-
-.deletebtn{
-    background-color: #af4c5c;
-}
-
 button:hover {
     opacity: 0.8;
 }
@@ -34,40 +26,9 @@ button:hover {
 
 }
 
-.reqList{
-    display: flex;
-    width: 100%;
-    min-width: 470px;
-    flex-direction: column;
-}
 
-.title{
-    font-weight: bold;
-}
 
-.reqGrid{
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-gap: 1px;
-    padding-top: 1px;
-    // background-color: #404040;
-}
 
-.reqCell{
-    background-color: #fffae1;
-    color: #000000;
-    min-height: 20px;
-    min-width: 40px;
-    padding: 5px 2px 5px 2px;
-}
 
-.reqHeader{
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    justify-content: space-between;
-}
 
-.reqAdd{
-    margin-top: auto;
-}
+

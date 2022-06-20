@@ -2,6 +2,7 @@ import './App.scss';
 import RequestsList from './RequestsList';
 import ModalAddRequest from './ModalAddRequest'
 import ReqAddForm from './ReqAddForm';
+import Header from './Header';
 import { useState } from 'react';
 import uuid from 'react-uuid'
 
@@ -26,15 +27,7 @@ function App() {
     <>
       <div className='container'>
         <div className='req'>
-
-          <div className='reqHeader'>
-            <h1>Список заявок:</h1>
-            <div className="reqAdd">
-              <span>Здравствуйте, <b>{currentUser}</b></span>
-              <button onClick={() => setModalActive(true)} className={'addbtn'}>Добавить зявку</button>
-            </div>
-          </div>
-
+          <Header currentUser={currentUser} setCurrentUser={setCurrentUser} setModalActive={setModalActive}/>
           <RequestsList requests={requests} setRequests={setRequests}/>
 
         </div>

@@ -1,3 +1,4 @@
+import './RequestsList.scss';
 import { useState } from 'react';
 import Request from "./Request";
 
