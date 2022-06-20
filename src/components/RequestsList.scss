@@ -19,10 +19,23 @@
     min-height: 20px;
     min-width: 40px;
     padding: 5px 2px 5px 2px;
+    font-size: medium;
+}
+
+.reqCellDisabled{
+    border: none;
+}
+
+.reqCellActive{
+    border: 1px solid #ccc;;
 }
 
 .title{
     font-weight: bold;
+}
+
+.editbtn{
+    background-color: #afad4c;
 }
 
 .deletebtn{

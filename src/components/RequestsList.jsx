@@ -15,7 +15,8 @@ function RequestsList({ requests, setRequests }) {
           <div className='reqCell title'>text</div>
         </div>
         {requests.map((e, i) => (
-          <Request id={e.id} date={e.date} type={e.type} status={e.status} author={e.author} text={e.text} list={requests} setList={setRequests} />
+          // <Request id={e.id} date={e.date} type={e.type} status={e.status} author={e.author} text={e.text} list={requests} setList={setRequests} />
+          <Request thisElement={e} list={requests} setList={setRequests} />
         ))}
       </div>
     )
