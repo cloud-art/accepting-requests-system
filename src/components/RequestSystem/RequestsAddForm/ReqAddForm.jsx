@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import moment from "moment";
 import uuid from 'react-uuid'
 import "./ReqAddForm.scss"
-import types from "../types.json"
+import types from "../../../types.json"
 
 const ReqAddForm = ({requests, setRequests, currentUser}) => {
 
@@ -46,7 +46,7 @@ const ReqAddForm = ({requests, setRequests, currentUser}) => {
 
     useEffect(() => {
         let tmpTypesList = []
-        import("../types.json").then(value => {
+        import("../../../types.json").then(value => {
             for (let i = 0; i < value.length; i++){
                 tmpTypesList.push(value[i])
             }

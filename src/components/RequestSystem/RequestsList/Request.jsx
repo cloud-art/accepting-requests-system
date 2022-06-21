@@ -1,4 +1,3 @@
-import './App.scss';
 import { useState, useEffect } from 'react';
 
 const Request = ({ thisElement, list, setList}) => {

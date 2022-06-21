@@ -1,13 +1,12 @@
-import './App.scss';
-import RequestsList from './RequestsList';
-import ModalAddRequest from './ModalAddRequest'
-import ReqAddForm from './ReqAddForm';
-import Header from './Header';
+import './RequestSystem.scss';
+import RequestsList from './RequestsList/RequestsList';
+import ModalAddRequest from './ModalWindow/ModalAddRequest'
+import ReqAddForm from './RequestsAddForm/ReqAddForm';
+import Header from './RequestHeader/Header';
 import { useState } from 'react';
 import uuid from 'react-uuid'
 
-function App() {
-  const [currentUser, setCurrentUser] = useState('guest');
+function RequestSystem({currentUser, setCurrentUser}) {
   const [requests, setRequests] = useState(
     [
       {
@@ -69,4 +68,4 @@ function App() {
   );
 }
 
-export default App;
+export default RequestSystem;
