@@ -1,21 +1,21 @@
 import './RequestsList.scss';
+import SortTitle from './SortTitle';
 import { useState } from 'react';
 import Request from "./Request";
 
 
-function RequestsList({ requests, setRequests }) {
+function RequestsList({ requests, setRequests, sortList }) {
   
     return (
       <div className="reqList">
         <div className="reqGrid">
-          <div className='reqCell title'>date</div>
-          <div className='reqCell title'>type</div>
-          <div className='reqCell title'>status</div>
-          <div className='reqCell title'>author</div>
-          <div className='reqCell title'>text</div>
+          <SortTitle name={'date'} sortList={sortList}/>
+          <span className='reqCell title'>type</span>
+          <SortTitle name={'status'} sortList={sortList}/>
+          <span className='reqCell title'>author</span>
+          <span className='reqCell title'>text</span>
         </div>
         {requests.map((e, i) => (
-          // <Request id={e.id} date={e.date} type={e.type} status={e.status} author={e.author} text={e.text} list={requests} setList={setRequests} />
           <Request thisElement={e} list={requests} setList={setRequests} />
         ))}
       </div>
