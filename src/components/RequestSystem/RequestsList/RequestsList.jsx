@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Request from "./Request";
 
 
-function RequestsList({ requests, setRequests, sortList }) {
+function RequestsList({ currentUser, requests, setRequests, sortList }) {
   
     return (
       <div className="reqList">
@@ -16,7 +16,7 @@ function RequestsList({ requests, setRequests, sortList }) {
           <span className='reqCell title'>text</span>
         </div>
         {requests.map((e, i) => (
-          <Request thisElement={e} list={requests} setList={setRequests} />
+          <Request currentUser={currentUser} thisElement={e} list={requests} setList={setRequests} />
         ))}
       </div>
     )

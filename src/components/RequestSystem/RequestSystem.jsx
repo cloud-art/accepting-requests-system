@@ -57,7 +57,7 @@ function RequestSystem({currentUser, setCurrentUser}) {
       <div className='container'>
         <div className='req'>
           <Header currentUser={currentUser} setCurrentUser={setCurrentUser} setModalActive={setModalActive}/>
-          <RequestsList requests={requests} setRequests={setRequests} sortList={sortList}/>
+          <RequestsList currentUser={currentUser} requests={requests} setRequests={setRequests} sortList={sortList}/>
 
         </div>
       </div>
